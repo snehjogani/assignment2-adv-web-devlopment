@@ -1,32 +1,35 @@
 import React, { Component, Fragment } from "react";
 import { Row, Card, CardTitle, Button, CardBody } from "reactstrap";
+import { withRouter } from 'react-router-dom'
+
 import { Colxx } from "../common/CustomBootstrap";
 
 class Error extends Component {
   render() {
+    const { history } = this.props
     return (
       <Fragment>
         <main>
           <div className="container">
             <Row className="h-100">
               <Colxx xxs="12" md="10" className="mx-auto my-auto">
-                <Card className="auth-card">
-                  <CardBody>
+                <Card className="p-3">
+                  <CardBody className="p-4">
                     <div className="form-side">
                       <CardTitle className="mb-4">
-                        {"Ooops... looks like an error occurred!"}
+                        {"Ooops... looks like the feature is not yet implemented!"}
                       </CardTitle>
-                      <p className="mb-0 text-muted text-small mb-0">
+                      <p className="mb-0 text-muted text-small">
                         {"Error code"}
                       </p>
                       <p className="display-1 font-weight-bold mb-5">404</p>
                       <Button
-                        href="/app"
                         color="primary"
-                        className="btn-shadow"
+                        onClick={() => history.goBack()}
+                        className="px-5"
                         size="md"
                       >
-                        {"Go Back Home"}
+                        {"Go Back"}
                       </Button>
                     </div>
                   </CardBody>
@@ -39,4 +42,4 @@ class Error extends Component {
     );
   }
 }
-export default Error;
+export default withRouter(Error);

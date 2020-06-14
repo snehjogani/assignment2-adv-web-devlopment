@@ -9,3 +9,17 @@ $theme-colors: ("primary": #7b68ee,
 .pointer:hover {
   color: var(--primary) !important;
 }
+
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #eee;
+  // box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: rgba(slategrey, .3);
+}

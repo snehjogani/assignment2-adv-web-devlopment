@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Row, Card, CardTitle, CardBody } from "reactstrap";
+import { Row, Card, CardTitle, CardBody, Modal, ModalHeader, ModalBody } from "reactstrap";
 import { NavLink } from "react-router-dom";
+
 import { Colxx } from "../../../common/CustomBootstrap";
 import LoginForm from "../components/LoginForm";
 
@@ -10,6 +11,7 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
+      isOpen: false
     }
   }
 
@@ -19,30 +21,59 @@ class Login extends Component {
       if (values.email !== "" && values.password !== "") {
         // loginUser(values, history);
         console.log({ values })
+        this.setState({
+          message: 'Login API request is not yet implemented.',
+          isOpen: true,
+          loading: true,
+        })
       }
     }
   }
 
+  closeModal = () => {
+    this.setState({
+      isOpen: false,
+      loading: false
+    })
+  }
+
   render() {
-    const initialValues = this.state;
+    const { email, password, message, isOpen, loading } = this.state;
     return (
-      <Row className="h-100">
-        <Colxx xxs="12" sm="10" lg="8" xl="6" className="mx-auto my-auto">
+      <Row style={{ height: '100vh', alignItems: 'center' }}>
+        <Modal isOpen={isOpen} toggle={this.closeModal}>
+          <ModalHeader toggle={this.closeModal}>{'Work In Progress'}</ModalHeader>
+          <ModalBody>
+            <div>
+              {message}<br />{'Click'}
+              <NavLink to="/app/dashboard">{' here '}</NavLink>
+              {'to visit the App.'}
+            </div>
+          </ModalBody>
+        </Modal>
+        <Colxx xxs="12" sm="10" lg="8" xl="6" className="mx-auto mb-5">
+          <div className="app-title">
+            {"Taskatik"}
+          </div>
           <Card>
             <CardBody>
               <CardTitle className="mb-3 d-flex justify-content-center align-items-center">
-                <strong>{"Login"}</strong>
+                <strong>{"Sign In"}</strong>
               </CardTitle>
-
-              <LoginForm initialValues={initialValues} onSubmit={this.onSubmit} />
-
-              <div className="d-flex justify-content-between align-items-center">
-                <NavLink to={`/user/forgot-password`}>
+              <LoginForm initialValues={{ email, password }} loading={loading} onSubmit={this.onSubmit} />
+              <div className="d-flex justify-content-between align-items-center" style={{ fontSize: '11px' }}>
+                <NavLink
+                  to={`#`}
+                  style={{ fontWeight: '500' }}
+                  onClick={() => this.setState({ isOpen: true, message: 'Forgot Password page is not yet implemented.' })}>
                   {"Forgot Password"}
                 </NavLink>
                 <span>
                   {"Don't have an account? Sign Up "}
-                  <NavLink to={`/user/register`}>
+                  <NavLink
+                    to={`#`}
+                    style={{ fontWeight: '500' }}
+                    onClick={() => this.setState({ isOpen: true, message: 'Sign Up page is not yet implemented.' })}>
                     {"Here"}
                   </NavLink>
                 </span>

@@ -10,28 +10,28 @@ import ViewApp from './views/app'
 import ViewUser from './views/user'
 import ViewError from './views/error'
 
-const AuthRoute = ({ component: Component, ...rest }) => {
-  // const token = localStorage.getItem(TOKEN_KEY);
-  // const userId = localStorage.getItem(USER_ID_KEY);
-  // return (
-  //   <Route
-  //     {...rest}
-  //     render={props =>
-  //       (token && userId) ? (
-  //         <Component {...props} />
-  //       ) : (
-  //           <Redirect
-  //             to={{
-  //               pathname: '/user/login',
-  //               state: { from: props.location }
-  //             }}
-  //           />
-  //         )
-  //     }
-  //   />
-  // );
-  return <Route {...rest} component={Component} />
-}
+// const AuthRoute = ({ component: Component, ...rest }) => {
+//   const token = localStorage.getItem(TOKEN_KEY);
+//   const userId = localStorage.getItem(USER_ID_KEY);
+//   return (
+//     <Route
+//       {...rest}
+//       render={props =>
+//         (token && userId) ? (
+//           <Component {...props} />
+//         ) : (
+//             <Redirect
+//               to={{
+//                 pathname: '/user/login',
+//                 state: { from: props.location }
+//               }}
+//             />
+//           )
+//       }
+//     />
+//   );
+//   return <Route {...rest} component={Component} />
+// }
 
 class App extends Component {
   render() {
@@ -39,10 +39,14 @@ class App extends Component {
       <Fragment>
         <Router>
           <Switch>
-            <AuthRoute
+            {/* <AuthRoute
               path="/app"
               // authUser={loginUser}
               component={ViewApp}
+            /> */}
+            <Route
+              path="/app"
+              render={props => <ViewApp {...props} />}
             />
             <Route
               path="/user"

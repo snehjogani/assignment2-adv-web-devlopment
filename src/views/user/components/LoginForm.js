@@ -25,10 +25,12 @@ class LoginForm extends Component {
   }
 
   render() {
-    const { initialValues, onSubmit } = this.props
+    const { loading, initialValues, onSubmit } = this.props
     return <Formik
       initialValues={initialValues}
-      onSubmit={onSubmit}>
+      onSubmit={onSubmit}
+      validateOnBlur
+    >
       {({ errors, touched }) => (
         <Form className="av-tooltip tooltip-label-bottom">
           <FormGroup>
@@ -62,17 +64,15 @@ class LoginForm extends Component {
               </div>
             )}
           </FormGroup>
-          <div className="mt-3 mb-3 d-flex justify-content-center align-items-center">
+          <div className="mt-4 mb-3 d-flex justify-content-center align-items-center">
             <Button
               color="primary"
-              className={`btn-shadow btn-multiple-state px-5 ${this.props.loading ? "show-spinner" : ""}`}
-            >
-              <span className="spinner d-inline-block">
-                <span className="bounce1" />
-                <span className="bounce2" />
-                <span className="bounce3" />
-              </span>
-              <span className="label">{"Login"}</span>
+              className="mt-2 px-4"
+              disabled={loading}>
+              {loading
+                ? <span className="spinner-border spinner-border-sm" style={{ marginBottom: '2px' }}></span>
+                : null}
+              <span className="label ml-2">{loading ? "Signing in..." : "Sign In"}</span>
             </Button>
           </div>
         </Form>

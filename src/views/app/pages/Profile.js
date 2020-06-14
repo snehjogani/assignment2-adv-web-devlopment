@@ -1,12 +1,20 @@
 import React, { Component } from "react";
-import { Card, CardTitle, Row, CardBody, Container } from "reactstrap";
-import ProfileForm from '../components/ProfileForm'
+import { Card, CardTitle, Row, CardBody, Modal, ModalHeader, ModalBody } from "reactstrap";
+
+import ProfileForm from '../components/ProfileForm';
 import { Colxx } from "../../../common/CustomBootstrap";
 
 class Profile extends Component {
   constructor(props) {
     super(props);
-    this.state = { firstName: "John", lastName: "Doe", mobile: "1234567890", email: "johndoe@example.com" };
+    this.state = {
+      firstName: "John",
+      lastName: "Doe",
+      mobile: "1234567890",
+      email: "johndoe@example.com",
+      isOpen: false,
+      loading: false
+    }
   }
 
   onSubmit = ({
@@ -19,22 +27,37 @@ class Profile extends Component {
       last_name: lastName,
       phone_no: mobile,
     };
+    console.log(data)
+    this.setState({ isOpen: true, loading: true })
     // changeProfile(user.id, data);
   }
 
+  closeModal = () => {
+    this.setState({
+      isOpen: false,
+      loading: false
+    })
+  }
+
   render() {
-    const initialValues = this.state;
+    const { isOpen, loading, ...initialValues } = this.state
     return (
-      <Row className="h-100">
+      <Row style={{ height: 'calc(100vh - 2rem)' }}>
+        <Modal isOpen={isOpen} toggle={this.closeModal}>
+          <ModalHeader toggle={this.closeModal}>{'Work In Progress'}</ModalHeader>
+          <ModalBody>
+            {'User profile change API is not yet implemented'}
+          </ModalBody>
+        </Modal>
         <Colxx>
-          <Card className="h-100 w-100">
+          <Card>
             <CardBody>
               <CardTitle className="mb-4 text-left text-primary">
                 <strong>
                   {"Profile"}
                 </strong>
               </CardTitle>
-              <ProfileForm initialValues={initialValues} onSubmit={this.onSubmit} />
+              <ProfileForm initialValues={initialValues} loading={loading} onSubmit={this.onSubmit} />
             </CardBody>
           </Card>
         </Colxx>

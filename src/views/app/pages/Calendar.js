@@ -44,7 +44,7 @@ export default class Calendar extends Component {
     return (
       <Row className="h-100">
         <Colxx xxs="12">
-          <Card className="h-100">
+          <Card style={{ height: 'calc(100vh - 2rem)' }}>
             <CardBody>
               <BigCalendar
                 popup

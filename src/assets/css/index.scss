@@ -15,6 +15,23 @@ body {
   margin-left: 55px;
 }
 
+.card {
+  border-radius: 8px;
+}
+
+.user-container {
+  .app-title {
+    text-align: center;
+    padding-bottom: 2rem;
+    font-size: 40px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--primary);
+    text-shadow: 2px 2px rgba(0, 0, 0, .1);
+  }
+}
+
 main {
   display: flex;
   min-height: 100vh;

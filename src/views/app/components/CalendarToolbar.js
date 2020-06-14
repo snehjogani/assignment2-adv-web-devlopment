@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import chroma from 'chroma-js'
 import Select from 'react-select'
 import { Navigate } from 'react-big-calendar'
-import { ButtonToggle } from 'reactstrap'
+import { ButtonToggle, Tooltip, UncontrolledTooltip } from 'reactstrap'
 
 import { colorScheme, status as taskStatus } from '../../../constants/defaultValues'
 
@@ -52,19 +52,27 @@ export default class Calendar extends Component {
           {"Today"}
         </span>
         <span
+          id="previous_month"
           className="pointer pt-1 px-2"
           style={{ color: 'gray', fontSize: '1.25rem', }}
           onClick={() => onNavigate(Navigate.PREVIOUS)}
         >
           <i className="fa fa-chevron-circle-left" />
         </span>
+        <UncontrolledTooltip placement="top" target="previous_month">
+          <div style={{ fontSize: '11px' }}>{"Previous Month"}</div>
+        </UncontrolledTooltip>
         <span
+          id="next_month"
           className="pointer pt-1 px-2"
           style={{ color: 'gray', fontSize: '1.25rem', }}
           onClick={() => onNavigate(Navigate.NEXT)}
         >
           <i className="fa fa-chevron-circle-right" />
         </span>
+        <UncontrolledTooltip placement="top" target="next_month">
+          <div style={{ fontSize: '11px' }}>{"Next Month"}</div>
+        </UncontrolledTooltip>
       </div>
       <div className="d-flex">
         <Select
@@ -75,9 +83,18 @@ export default class Calendar extends Component {
           styles={this.selectStyles()}
           options={this.selectOptions()}
         />
-        <ButtonToggle active={self} className="ml-3" outline color="primary" onClick={toggleUser}>
+        <ButtonToggle
+          outline
+          id="task_toggle_btn"
+          active={self}
+          className="ml-3"
+          color="primary"
+          onClick={toggleUser}>
           <i className="fa fa-user pr-2" />{"Me"}
         </ButtonToggle>
+        <UncontrolledTooltip placement="bottom" autohide target="task_toggle_btn">
+          <div style={{ fontSize: '11px' }}>{self ? "Show Everyone's Tasks" : "Show My Tasks"}</div>
+        </UncontrolledTooltip>
       </div>
     </div>
   }
