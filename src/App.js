@@ -1,26 +1,64 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import ViewApp from './views/app'
+import ViewUser from './views/user'
+import ViewError from './views/error'
+
+const AuthRoute = ({ component: Component, ...rest }) => {
+  // const token = localStorage.getItem(TOKEN_KEY);
+  // const userId = localStorage.getItem(USER_ID_KEY);
+  // return (
+  //   <Route
+  //     {...rest}
+  //     render={props =>
+  //       (token && userId) ? (
+  //         <Component {...props} />
+  //       ) : (
+  //           <Redirect
+  //             to={{
+  //               pathname: '/user/login',
+  //               state: { from: props.location }
+  //             }}
+  //           />
+  //         )
+  //     }
+  //   />
+  // );
+  return <Route {...rest} component={Component} />
+}
+
+class App extends Component {
+  render() {
+    return (
+      <Fragment>
+        <Router>
+          <Switch>
+            <AuthRoute
+              path="/app"
+              // authUser={loginUser}
+              component={ViewApp}
+            />
+            <Route
+              path="/user"
+              render={props => <ViewUser {...props} />}
+            />
+            <Route
+              path="/error"
+              exact
+              render={props => <ViewError {...props} />}
+            />
+            <Redirect to="/error" />
+          </Switch>
+        </Router>
+      </Fragment>
+    );
+  }
 }
 
 export default App;

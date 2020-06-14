@@ -1,0 +1,22 @@
+.sidebar {
+  display: flex;
+  flex: 0 0 55px;
+  flex-direction: column;
+  justify-content: space-between;
+  order: -1;
+  width: 55px;
+  padding: 0;
+  box-shadow: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1031;
+}
+
+.sidebar .nav-link {
+  text-align: center;
+}
+
+.sidebar .secondary-menu {
+  padding-bottom: 0.5rem;
+}

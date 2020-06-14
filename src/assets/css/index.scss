@@ -1,0 +1,26 @@
+@import "src/assets/css/custom";
+@import "src/assets/css/notification";
+@import "src/assets/css/sidebar";
+@import "src/assets/css/app";
+@import "node_modules/bootstrap/scss/bootstrap";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container main {
+  margin-left: 55px;
+}
+
+main {
+  display: flex;
+  min-height: 100vh;
+  background-color: #eee;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

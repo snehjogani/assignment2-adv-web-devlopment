@@ -1,0 +1,11 @@
+$theme-colors: ("primary": #7b68ee,
+  "secondary": rgb(174, 172, 176),
+  "danger": #ff4136);
+
+.pointer {
+  cursor: pointer;
+}
+
+.pointer:hover {
+  color: var(--primary) !important;
+}
