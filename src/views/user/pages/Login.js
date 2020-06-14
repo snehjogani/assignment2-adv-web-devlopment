@@ -45,9 +45,9 @@ class Login extends Component {
           <ModalHeader toggle={this.closeModal}>{'Work In Progress'}</ModalHeader>
           <ModalBody>
             <div>
-              {message}<br />{'Click'}
-              <NavLink to="/app/dashboard">{' here '}</NavLink>
-              {'to visit the App.'}
+              {message}<br />{'Click '}
+              <NavLink to="/app/dashboard">{'here'}</NavLink>
+              {' to visit the App.'}
             </div>
           </ModalBody>
         </Modal>
