@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import moment from 'moment'
-import { Badge } from 'reactstrap';
+import { Badge, UncontrolledTooltip } from 'reactstrap';
 
 import { notificationType, colorScheme, status } from '../../../constants/defaultValues'
 
@@ -65,12 +65,20 @@ export default class NotificationItem extends Component {
     return <div className="notification">
       <div className="item-header">
         <div className="item-title">
-          <span>{task}</span>
+          <span id="task_title">{task}</span>
+          <UncontrolledTooltip placement="top" autohide target="task_title">
+            <div style={{ fontSize: '11px' }}>{"Go To Task"}</div>
+          </UncontrolledTooltip>
         </div>
         {unread
-          ? <div className="item-close" onClick={() => markAsRead(id)}>
-            <i className="fa fa-eye-slash" />
-          </div>
+          ? <Fragment>
+            <div id="mark_as_read" className="item-close" onClick={() => markAsRead(id)}>
+              <i className="fa fa-eye-slash" />
+            </div>
+            <UncontrolledTooltip placement="top" autohide target="mark_as_read">
+              <div style={{ fontSize: '11px' }}>{"Mark As Read"}</div>
+            </UncontrolledTooltip>
+          </Fragment>
           : undefined
         }
       </div>

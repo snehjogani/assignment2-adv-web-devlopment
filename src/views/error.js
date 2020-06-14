@@ -11,8 +11,8 @@ class Error extends Component {
       <Fragment>
         <main>
           <div className="container">
-            <Row className="h-100">
-              <Colxx xxs="12" md="10" className="mx-auto my-auto">
+            <Row style={{ height: 'calc(100vh - 2rem)', alignItems: 'center' }}>
+              <Colxx xxs="12" md="10" className="mx-auto">
                 <Card className="p-3">
                   <CardBody className="p-4">
                     <div className="form-side">

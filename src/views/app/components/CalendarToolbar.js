@@ -59,7 +59,7 @@ export default class Calendar extends Component {
         >
           <i className="fa fa-chevron-circle-left" />
         </span>
-        <UncontrolledTooltip placement="top" target="previous_month">
+        <UncontrolledTooltip placement="bottom" autohide target="previous_month">
           <div style={{ fontSize: '11px' }}>{"Previous Month"}</div>
         </UncontrolledTooltip>
         <span
@@ -70,7 +70,7 @@ export default class Calendar extends Component {
         >
           <i className="fa fa-chevron-circle-right" />
         </span>
-        <UncontrolledTooltip placement="top" target="next_month">
+        <UncontrolledTooltip placement="bottom" autohide target="next_month">
           <div style={{ fontSize: '11px' }}>{"Next Month"}</div>
         </UncontrolledTooltip>
       </div>
