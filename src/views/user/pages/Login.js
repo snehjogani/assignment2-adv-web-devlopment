@@ -53,7 +53,7 @@ class Login extends Component {
         </Modal>
         <Colxx xxs="12" sm="10" lg="8" xl="6" className="mx-auto mb-5">
           <div className="app-title">
-            {"Taskatik"}
+            {"Taskatic"}
           </div>
           <Card>
             <CardBody>
