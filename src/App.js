@@ -57,6 +57,7 @@ class App extends Component {
               exact
               render={props => <ViewError {...props} />}
             />
+            <Redirect to="/user" from="/" />
             <Redirect to="/error" />
           </Switch>
         </Router>
