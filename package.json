@@ -1,5 +1,6 @@
 {
-  "name": "frontend",
+  "name": "assingment2",
+  "description": "Adv Web Development - Assignment 2",
   "version": "0.1.0",
   "author": {
     "name": "Jogani Sneh",
@@ -12,18 +13,18 @@
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.5.0",
     "@testing-library/user-event": "7.2.1",
-    "bootstrap": "^4.5.0",
-    "chroma-js": "^2.1.0",
-    "classnames": "^2.2.6",
+    "bootstrap": "4.5.0",
+    "chroma-js": "2.1.0",
+    "classnames": "2.2.6",
     "formik": "2.1.4",
-    "moment": "^2.26.0",
+    "moment": "2.26.0",
     "react": "16.13.1",
-    "react-big-calendar": "^0.25.0",
+    "react-big-calendar": "0.25.0",
     "react-dom": "16.13.1",
-    "react-perfect-scrollbar": "^1.5.8",
+    "react-perfect-scrollbar": "1.5.8",
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.1",
-    "react-select": "^3.1.0",
+    "react-select": "3.1.0",
     "reactstrap": "8.4.1"
   },
   "scripts": {
@@ -48,6 +49,6 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^4.14.1"
+    "node-sass": "4.14.1"
   }
 }
