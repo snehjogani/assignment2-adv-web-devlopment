@@ -1,10 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import ReactDOM from 'react-dom';
-import { Nav, NavItem, NavLink as Link } from 'reactstrap';
-import { NavLink } from 'react-router-dom';
-import classnames from 'classnames';
+import { NavLink, withRouter } from 'react-router-dom';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { withRouter } from 'react-router-dom';
+import { Nav, NavItem, NavLink as Link, UncontrolledTooltip } from 'reactstrap';
 
 import { main, secondary } from '../../constants/menu';
 
@@ -20,11 +17,16 @@ class Sidebar extends Component {
               {main &&
                 main.map(item => {
                   return (
-                    <NavItem key={item.id}>
-                      <Link tag={NavLink} to={item.to}>
-                        <i className={item.icon} />
-                      </Link>
-                    </NavItem>
+                    <Fragment key={item.id}>
+                      <NavItem id={item.id}>
+                        <Link tag={NavLink} to={item.to}>
+                          <i className={item.icon} />
+                        </Link>
+                      </NavItem>
+                      <UncontrolledTooltip id={item} target={item.id} placement="right" autohide style={{ fontSize: '12px' }}>
+                        {item.label}
+                      </UncontrolledTooltip>
+                    </Fragment>
                   );
                 })}
             </Nav>
@@ -35,11 +37,16 @@ class Sidebar extends Component {
             {secondary &&
               secondary.map(item => {
                 return (
-                  <NavItem key={item.id}>
-                    <Link tag={NavLink} to={item.to}>
-                      <i className={item.icon} />
-                    </Link>
-                  </NavItem>
+                  <Fragment key={item.id}>
+                    <NavItem id={item.id}>
+                      <Link tag={NavLink} to={item.to}>
+                        <i className={item.icon} />
+                      </Link>
+                    </NavItem>
+                    <UncontrolledTooltip target={item.id} placement="right" autohide style={{ fontSize: '12px' }}>
+                      {item.label}
+                    </UncontrolledTooltip>
+                  </Fragment>
                 );
               })}
           </Nav>

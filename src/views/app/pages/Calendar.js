@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import moment from 'moment'
 import { Calendar as BigCalendar, momentLocalizer } from 'react-big-calendar'
-import { Row, Card, CardBody } from 'reactstrap'
+import { Row, Card, CardBody, Modal, ModalHeader, ModalBody } from 'reactstrap'
 
 import events from '../../../constants/calendarEvents'
 import { colorScheme } from '../../../constants/defaultValues'
@@ -13,7 +13,8 @@ export default class Calendar extends Component {
     super(props)
     this.state = {
       events,
-      self: false
+      self: false,
+      isOpen: false
     }
   }
 
@@ -39,10 +40,28 @@ export default class Calendar extends Component {
     this.setState({ events: newEvents, self: !self })
   }
 
+  handleEventClick = (event) => {
+    this.setState({
+      isOpen: true,
+      message: event.title
+    })
+  }
+
+  closeModal = () => {
+    this.setState({ isOpen: false })
+  }
+
   render() {
-    const { events, self, status } = this.state
+    const { events, self, status, isOpen } = this.state
     return (
       <Row className="h-100">
+        <Modal isOpen={isOpen} toggle={this.closeModal}>
+          <ModalHeader toggle={this.closeModal}>{'Work In Progress'}</ModalHeader>
+          <ModalBody>
+            {'Clicking on the task will redirect you to its details view.'} <br />
+            {'Unfortunately the feature is not yet impplemented.'}
+          </ModalBody>
+        </Modal>
         <Colxx xxs="12">
           <Card style={{ height: 'calc(100vh - 2rem)' }}>
             <CardBody>
@@ -54,6 +73,7 @@ export default class Calendar extends Component {
                 startAccessor={'dueDate'}
                 localizer={momentLocalizer(moment)}
                 eventPropGetter={({ status }) => ({ 'style': { 'backgroundColor': colorScheme[status] } })}
+                onSelectEvent={this.handleEventClick}
                 components={{
                   toolbar: (props) =>
                     <CalendarToolbar

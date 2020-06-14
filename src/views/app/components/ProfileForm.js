@@ -33,7 +33,7 @@ class ProfileForm extends Component {
           <Form className="av-tooltip tooltip-label-bottom">
             <FormGroup className="form-group has-float-label">
               <Label>
-                {"Email"}
+                {"Email*"}
               </Label>
               <Field
                 className="form-control"
@@ -44,7 +44,7 @@ class ProfileForm extends Component {
 
             <FormGroup className="form-group has-float-label">
               <Label>
-                {"First Name"}
+                {"First Name*"}
               </Label>
               <Field
                 className="form-control"
@@ -60,7 +60,7 @@ class ProfileForm extends Component {
 
             <FormGroup className="form-group has-float-label">
               <Label>
-                {"Last Name"}
+                {"Last Name*"}
               </Label>
               <Field
                 className="form-control"
