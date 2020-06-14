@@ -11,7 +11,7 @@
 
 ### URLs 
 
-Heroku Deployment • [Link](https://taskatik-assignment-2.herokuapp.com/)
+Heroku Deployment • [Link](https://taskatic-assignment-2.herokuapp.com/)
 GitHub Repository • [Link](https://github.com/snehjogani/assignment2-adv-web-devlopment)
 
 ### Content
